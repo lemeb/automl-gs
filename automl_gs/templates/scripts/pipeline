@@ -63,7 +63,7 @@ def build_model(encoders):
                       outputs=[output])
     {% if not tpu_address %}
     model.compile(loss={% include 'models/' ~ framework ~ '/loss' %},
-              optimizer=AdamWOptimizer(learning_rate = {{ params['base_lr'] }},
+              optimizer=AdamW(learning_rate = {{ params['base_lr'] }},
                                         weight_decay = {{ params['weight_decay'] }}))
     {% else %}
     model.compile(loss={% include 'models/' ~ framework ~ '/loss' %},
