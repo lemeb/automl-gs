@@ -5,6 +5,6 @@
     {% endif %}
     {% if params['numeric_strat'] in ['quantiles', 'percentiles'] %}
     {{ field }}_enc = pd.cut(df['{{ field_raw }}'].values, encoders['{{ field }}_bins'], labels=False, include_lowest=True)
-    {{ field }} = np.where(np.isnan({{ field }}), -1, {{ field }})
+    {{ field }}_enc = np.where(np.isnan({{ field }})_enc, -1, {{ field }}_enc)
     {{ field }}_enc = encoders['{{ field }}_encoder'].transform({{ field }}_enc)
     {% endif %}

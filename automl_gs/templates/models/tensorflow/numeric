@@ -6,3 +6,5 @@
     {% else %}
     input_{{ field }} = Input(shape=(10,), name="input_{{ field }}")
     {% endif %}
+    with open("input_shapes_debug.txt", "a") as f:
+        f.write(f"input_{{ field }}: {input_{{ field }}.shape} (n)\n")
