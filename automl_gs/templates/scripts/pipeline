@@ -212,13 +212,14 @@ def model_train(df, encoders, args, model=None):
         model: A compiled model (for TensorFlow, None otherwise).
     """
     {% if framework == 'tensorflow' %}
-    print("Color classes:", len(encoders['color_encoder'].classes_))
-    print("Cut classes:", len(encoders['cut_encoder'].classes_))
-    print("Clarity classes:", len(encoders['clarity_encoder'].classes_))
-    print("Polish classes:", len(encoders['polish_encoder'].classes_))
-    print("Symmetry classes:", len(encoders['symmetry_encoder'].classes_))
-    print("Cut-Clarity Interaction classes:", len(encoders['cut_clarity_interaction_encoder'].classes_))
-    print("Polish-Symmetry Interaction classes:", len(encoders['polish_symmetry_interaction_encoder'].classes_))
+    with open("encoder_classes_info.txt", "w") as f:
+        f.write(f"Color classes: {len(encoders['color_encoder'].classes_)}\n")
+        f.write(f"Cut classes: {len(encoders['cut_encoder'].classes_)}\n")
+        f.write(f"Clarity classes: {len(encoders['clarity_encoder'].classes_)}\n")
+        f.write(f"Polish classes: {len(encoders['polish_encoder'].classes_)}\n")
+        f.write(f"Symmetry classes: {len(encoders['symmetry_encoder'].classes_)}\n")
+        f.write(f"Cut-Clarity Interaction classes: {len(encoders['cut_clarity_interaction_encoder'].classes_)}\n")
+        f.write(f"Polish-Symmetry Interaction classes: {len(encoders['polish_symmetry_interaction_encoder'].classes_)}\n")
     X, y = process_data(df, encoders)
     {% endif %}
 
