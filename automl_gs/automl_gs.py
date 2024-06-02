@@ -34,7 +34,7 @@ def automl_grid_search(csv_path, target_field,
     )
 
     df = pd.read_csv(csv_path, nrows=100)
-    object_cols = [col for col, col_type in df.dtypes.iteritems() if col_type == 'object']
+    object_cols = [col for col, col_type in df.dtypes.items() if col_type == 'object']
     df[object_cols] = df[object_cols].apply(pd.to_datetime, errors='ignore')
 
     problem_type, target_metric, direction = get_problem_config(
