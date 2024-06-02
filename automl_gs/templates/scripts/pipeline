@@ -212,7 +212,6 @@ def model_train(df, encoders, args, model=None):
         model: A compiled model (for TensorFlow, None otherwise).
     """
     {% if framework == 'tensorflow' %}
-    X, y = process_data(df, encoders)
     print("Color classes:", len(encoders['color_encoder'].classes_))
     print("Cut classes:", len(encoders['cut_encoder'].classes_))
     print("Clarity classes:", len(encoders['clarity_encoder'].classes_))
@@ -220,6 +219,7 @@ def model_train(df, encoders, args, model=None):
     print("Symmetry classes:", len(encoders['symmetry_encoder'].classes_))
     print("Cut-Clarity Interaction classes:", len(encoders['cut_clarity_interaction_encoder'].classes_))
     print("Polish-Symmetry Interaction classes:", len(encoders['polish_symmetry_interaction_encoder'].classes_))
+    X, y = process_data(df, encoders)
     {% endif %}
 
     {% if framework == 'xgboost' %}
