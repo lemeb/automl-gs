@@ -18,7 +18,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.callbacks import Callback
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Embedding, SpatialDropout1D, LSTM, CuDNNLSTM, GRU, CuDNNGRU, concatenate, Dense, BatchNormalization, Dropout, AlphaDropout
+from tensorflow.keras.layers import Input, Embedding, SpatialDropout1D, LSTM, GRU, concatenate, Dense, BatchNormalization, Dropout, AlphaDropout
 from tensorflow.keras import backend as K
 # from tensorflow.contrib.opt import AdamWOptimizer
 from tensorflow.keras.optimizers import AdamW
