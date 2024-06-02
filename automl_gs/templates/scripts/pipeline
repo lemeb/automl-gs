@@ -67,7 +67,7 @@ def build_model(encoders):
                                         weight_decay = {{ params['weight_decay'] }}))
     {% else %}
     model.compile(loss={% include 'models/' ~ framework ~ '/loss' %},
-              optimizer=AdamOptimizer(learning_rate = {{ params['base_lr'] }}))
+              optimizer=Adam(learning_rate = {{ params['base_lr'] }}))
     {% endif %}
 
     return model
