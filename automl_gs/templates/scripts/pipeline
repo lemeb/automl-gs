@@ -213,6 +213,13 @@ def model_train(df, encoders, args, model=None):
     """
     {% if framework == 'tensorflow' %}
     X, y = process_data(df, encoders)
+    print("Color classes:", len(encoders['color_encoder'].classes_))
+    print("Cut classes:", len(encoders['cut_encoder'].classes_))
+    print("Clarity classes:", len(encoders['clarity_encoder'].classes_))
+    print("Polish classes:", len(encoders['polish_encoder'].classes_))
+    print("Symmetry classes:", len(encoders['symmetry_encoder'].classes_))
+    print("Cut-Clarity Interaction classes:", len(encoders['cut_clarity_interaction_encoder'].classes_))
+    print("Polish-Symmetry Interaction classes:", len(encoders['polish_symmetry_interaction_encoder'].classes_))
     {% endif %}
 
     {% if framework == 'xgboost' %}
