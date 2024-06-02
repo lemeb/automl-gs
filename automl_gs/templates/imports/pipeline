@@ -34,5 +34,5 @@ import xgboost as xgb
 {% endif %}
 
 {% if framework == 'tensorflow' %}
-tf.logging.set_verbosity(tf.logging.ERROR)
+tf.get_logger().setLevel('ERROR')
 {% endif %} 
